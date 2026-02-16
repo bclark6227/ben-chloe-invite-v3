@@ -858,9 +858,15 @@ function create() {
   this.gameOver = () => {
     this.isGameOver = true;
     gameOverOverlay.setVisible(true);
+
     const children = gameOverOverlay.getAll();
     const finalEl = children[2];
     if (finalEl && finalEl.setText) finalEl.setText('Score: ' + score);
+
+    // Allow tap/click to retry (mobile friendly)
+    this.input.once('pointerdown', () => {
+      this.scene.restart();
+    });
   };
 
   this.physics.add.overlap(
@@ -932,7 +938,7 @@ function create() {
   });
   finalScoreText.setOrigin(0.5);
   finalScoreText.setScrollFactor(0);
-  const retryText = this.add.text(this.scale.width / 2, this.scale.height / 2 + 60, 'Press R to Retry', {
+  const retryText = this.add.text(this.scale.width / 2, this.scale.height / 2 + 60, 'Press R or Tap to Retry', {
     fontSize: 28,
     color: '#2ecc71'
   });
