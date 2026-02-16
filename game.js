@@ -270,7 +270,36 @@ const config = {
   }
 
   destroyExistingGame();
-  window[GAME_KEY] = new Phaser.Game(config);
+  const game = new Phaser.Game(config);
+  window[GAME_KEY] = game;
+
+  /*
+  // --- Mobile viewport fix (iOS Chrome/Safari) ---
+  function applyRealViewportHeight() {
+    const el = document.getElementById('game');
+    if (!el) return;
+    // iOS address bar makes 100vh unreliable; innerHeight is the real visible space
+    el.style.width = window.innerWidth + 'px';
+    el.style.height = window.innerHeight + 'px';
+  }
+
+  function refreshPhaserScale() {
+    if (!game || !game.scale) return;
+    // Recompute FIT scaling + centering after viewport changes
+    game.scale.refresh();
+  }
+
+  function handleViewportChange() {
+    applyRealViewportHeight();
+    // let layout settle first (especially on orientation change)
+    setTimeout(refreshPhaserScale, 50);
+  }
+
+  window.addEventListener('resize', handleViewportChange);
+  window.addEventListener('orientationchange', () => setTimeout(handleViewportChange, 150));
+  setTimeout(handleViewportChange, 0);
+  // --- end mobile viewport fix ---
+  */
 })();
 
 let obstaclesGroup;
