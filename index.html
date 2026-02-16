@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben & Chloe Runner v2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="bgm" preload="none">
+    <source src="assets/audio/song.m4a" type="audio/mp4">
+  </audio>
+  <div id="game-container"></div>
+  <script>
+    window.addEventListener('keydown', (e) => { if (e.code === 'Space') e.preventDefault(); }, { capture: true, passive: false });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+  <script src="game.js?v=999"></script>
+</body>
+</html>
