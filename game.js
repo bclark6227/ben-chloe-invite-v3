@@ -224,7 +224,7 @@ const config = {
   parent: 'game',
   render: { pixelArt: true, roundPixels: true, antialias: false },
   scale: {
-    mode: Phaser.Scale.RESIZE,
+    mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
@@ -751,8 +751,6 @@ function create() {
   // END DEBUG OVERLAY
 
   this.cameras.main.setRoundPixels(true);
-  this.game.canvas.style.width = '800px';
-  this.game.canvas.style.height = '400px';
   this.game.canvas.setAttribute('tabindex', '0');
   this.game.canvas.focus();
   this.input.on('pointerdown', () => {
