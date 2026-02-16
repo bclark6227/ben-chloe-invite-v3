@@ -225,7 +225,9 @@ const config = {
   render: { pixelArt: true, roundPixels: true, antialias: false },
   scale: {
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 800,
+    height: 400
   },
   physics: {
     default: 'arcade',
