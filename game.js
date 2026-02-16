@@ -727,29 +727,6 @@ function create() {
       console.log('[TEX]', k, img?.width, img?.height);
     });
 
-  // DEBUG OVERLAY (temporary - remove this block to delete)
-  const prev = document.getElementById('ben-chloe-debug-overlay');
-  if (prev) prev.remove();
-  if (this._debugOverlayInterval) clearInterval(this._debugOverlayInterval);
-  const debugEl = document.createElement('div');
-  debugEl.id = 'ben-chloe-debug-overlay';
-  debugEl.style.cssText = 'position:fixed;top:8px;left:8px;font:11px monospace;color:#0f0;background:rgba(0,0,0,0.8);padding:6px 10px;z-index:9999;pointer-events:none;';
-  document.body.appendChild(debugEl);
-  this._debugOverlayInterval = setInterval(() => {
-    const sceneKey = (this.scene && this.scene.key) || 'default';
-    const container = document.getElementById('game');
-    const canvasCount = container ? container.querySelectorAll('canvas').length : 0;
-    const countBen = (obj) => {
-      let n = 0;
-      if (obj.texture && obj.texture.key === 'ben') n++;
-      if (obj.getAll) obj.getAll().forEach(c => { n += countBen(c); });
-      return n;
-    };
-    const benCount = (this.children.getChildren?.() || []).reduce((s, c) => s + countBen(c), 0);
-    debugEl.textContent = `scene: ${sceneKey} | canvases: ${canvasCount} | ben objs: ${benCount}`;
-  }, 500);
-  // END DEBUG OVERLAY
-
   this.cameras.main.setRoundPixels(true);
   this.game.canvas.setAttribute('tabindex', '0');
   this.game.canvas.focus();
