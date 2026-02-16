@@ -221,9 +221,12 @@ const config = {
   type: Phaser.AUTO,
   width: 800,
   height: 400,
-  parent: 'game-container',
+  parent: 'game',
   render: { pixelArt: true, roundPixels: true, antialias: false },
-  scale: { mode: Phaser.Scale.NONE, width: 800, height: 400, autoCenter: Phaser.Scale.CENTER_BOTH },
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
   physics: {
     default: 'arcade',
     arcade: {
@@ -243,7 +246,7 @@ const config = {
 
 (function bootBenChloeRunner() {
   const GAME_KEY = '__BEN_CHLOE_RUNNER_GAME__';
-  const CONTAINER_ID = 'game-container';
+  const CONTAINER_ID = 'game';
 
   function destroyExistingGame() {
     // kill known instance
@@ -705,7 +708,7 @@ function create() {
   document.body.appendChild(debugEl);
   this._debugOverlayInterval = setInterval(() => {
     const sceneKey = (this.scene && this.scene.key) || 'default';
-    const container = document.getElementById('game-container');
+    const container = document.getElementById('game');
     const canvasCount = container ? container.querySelectorAll('canvas').length : 0;
     const countBen = (obj) => {
       let n = 0;
