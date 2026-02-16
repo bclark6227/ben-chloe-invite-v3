@@ -32,7 +32,7 @@ if (!window.__BEN_CHLOE_KEYBINDS__) {
   }, { capture: true, passive: false });
 }
 
-const DEV_ASSET_V = 1;
+const DEV_ASSET_V = 18;
 
 const GRAVITY = 1400;
 const JUMP_VELOCITY = -760;
@@ -225,9 +225,7 @@ const config = {
   render: { pixelArt: true, roundPixels: true, antialias: false },
   scale: {
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 800,
-    height: 400
+    autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
     default: 'arcade',
