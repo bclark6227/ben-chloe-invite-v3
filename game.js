@@ -224,7 +224,7 @@ const config = {
   parent: 'game',
   render: { pixelArt: true, roundPixels: true, antialias: false },
   scale: {
-    mode: Phaser.Scale.FIT,
+    mode: Phaser.Scale.RESIZE,
     autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
